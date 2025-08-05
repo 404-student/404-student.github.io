@@ -1,0 +1,6 @@
+- label: "Email"
+  icon: "fas fa-envelope"
+  url: "mailto: 3591321671@qq.com"
+- label: "Github"
+  icon: "fab fa-github"
+  url: "https://github.com/404-student"
