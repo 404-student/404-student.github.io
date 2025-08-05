@@ -1,0 +1,73 @@
+.fortune-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.fortune-header {
+  margin-bottom: 2rem;
+}
+
+.fortune-date {
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.fortune-result {
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.fortune-level {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.fortune-score {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fortune-advice {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #495057;
+}
+
+.fortune-tip {
+  padding: 1rem;
+  background: #e9ecef;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.fortune-button {
+  background: #4e73df;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.fortune-button:hover {
+  background: #2e59d9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 运势等级颜色 */
+.great-fortune { color: #e74a3b; }  /* 大吉 - 红色 */
+.good-fortune { color: #1cc88a; }   /* 吉 - 绿色 */
+.normal-fortune { color: #36b9cc; } /* 中吉 - 青色 */
+.bad-fortune { color: #6f42c1; }    /* 凶 - 紫色 */
