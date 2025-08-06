@@ -81,7 +81,11 @@ function generateFortune() {
   
   const tipIndex = Math.floor(seededRandom(seed * 3) * tips.length);
   document.getElementById('fortune-tip').textContent = `✨ 提示: ${tips[tipIndex]}`;
+  
+  // 显示运势结果
+  document.getElementById('fortune-result').style.display = 'block';
+  
+  // 修改按钮文本
+  const button = document.querySelector('.fortune-button');
+  button.textContent = '再测一次';
 }
-
-// 页面加载时生成运势
-window.onload = generateFortune;
