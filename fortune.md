@@ -17,7 +17,7 @@ permalink: /fortune/
     <div class="fortune-tip" id="fortune-tip"></div>
   </div>
   
-  <button class="fortune-button" onclick="generateFortune()">测测运势</button>
+  <button class="fortune-button" onclick="generateFortune()">好运来！</button>
 </div>
 
 <link rel="stylesheet" href="/assets/css/fortune.css">
