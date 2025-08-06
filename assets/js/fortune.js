@@ -47,17 +47,17 @@ function generateFortune() {
   // 随机建议
   const advices = [
     "今天适合刷算法题！",
-    "尝试解决一道动态规划问题",
-    "复习一下图论知识",
-    "写一篇技术博客分享你的知识",
-    "挑战一道困难级别的题目",
+    "想玩狼人杀但是凑不出12个人",
+    "熬夜赶工完成ddl！",
+    "王者五排dd",
+    "重温一张经典Hiphop专辑！",
     "学习一种新的数据结构",
     "重构你的旧代码",
-    "参与开源项目贡献",
-    "向同学解释一个复杂概念",
-    "整理你的代码库",
-    "学习一个新的编程语言特性",
-    "优化你过去的解决方案"
+    "适合充满奇思妙想的一天",
+    "在mc里淘一个超级好玩的模组",
+    "天气不错！和朋友一起出去玩吧",
+    "今天会有意想不到的惊喜发生！期待吧",
+    "我累了，不想对你说任何话"
   ];
   
   const adviceIndex = Math.floor(seededRandom(seed * 2) * advices.length);
@@ -87,5 +87,5 @@ function generateFortune() {
   
   // 修改按钮文本
   const button = document.querySelector('.fortune-button');
-  button.textContent = '再测一次';
+  button.textContent = '不是我喜欢的运势，直接重测';
 }
