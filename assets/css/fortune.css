@@ -54,12 +54,11 @@
   text-decoration: none;
   position: relative;
   border: none;
-  font-size: 14px;
   font-family: inherit;
   cursor: pointer;
   color: #fff;
-  width: 9em;
-  height: 3em;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
   line-height: 2em;
   text-align: center;
   background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
