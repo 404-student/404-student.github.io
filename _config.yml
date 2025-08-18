@@ -21,7 +21,7 @@ title                    : "404 Student's World"
 title_separator          : "-"
 subtitle                 : "个人网站这一块" # site tagline that appears below site title in masthead
 name                     : "404 student"
-description              : "PKU 24本 某菜鸡做的个人网站。原来这是用于搜索引擎的吗？那我挂一堆tag：ai，信科，北大，计算机。"
+description              : "欢迎！"
 url                      : "https://404-student.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
