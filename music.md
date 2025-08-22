@@ -11,8 +11,8 @@ permalink: /music/
   <!-- 音乐播放器 -->
   <div class="music-player-container">
     <div class="player-header">
-      <h1>音乐播放器</h1>
-      <p>享受音乐，享受编程时光</p>
+      <h1>今日推荐歌曲</h1>
+      <p>2025-08-23</p>
     </div>
     <div class="player-body">
       <div class="album-art">
@@ -20,8 +20,8 @@ permalink: /music/
       </div>
       <div class="player-controls">
         <div class="song-info">
-          <h2 class="song-title" id="song-title">晴天</h2>
-          <p class="song-artist" id="song-artist">周杰伦</p>
+          <h2 class="song-title" id="song-title">金球奖</h2>
+          <p class="song-artist" id="song-artist">谢帝/华云龙KLE</p>
         </div>
         <div class="progress-container">
           <div class="progress-bar" id="progress-bar">
@@ -39,9 +39,9 @@ permalink: /music/
         </div>
       </div>
       <div class="song-description">
-        <h3>关于《晴天》</h3>
-        <p>《晴天》是周杰伦演唱的一首歌曲，由周杰伦作词、作曲、编曲，收录于周杰伦2003年7月31日发行的专辑《叶惠美》中。2003年，该曲获得"第十届全球华语音乐榜"港台地区最佳歌曲奖。2005年，获得"第四届全球华语歌曲排行榜"年度最受欢迎金曲奖。</p>
-        <p>这首歌曲讲述的是怀念校园的点滴，一起约定，等到放晴的那天，共同来谱一段纯纯的爱。歌曲用简洁的吉他伴奏和周杰伦独特的唱腔，完美诠释了青春时期的青涩与美好回忆。</p>
+        <h3>推荐原因</h3>
+        <p>来自于谢帝今天发行的mixtape《Couple Hunnid All Star Mixtape Vol.1》，虽然这首作为先行曲很早就发布了。谢帝的这张专辑邀请了大批圈内有名气的rapper，既可以看作是谢帝邀请说唱圈大批rapper的狂欢，也可以看作谢帝带领这些rapper在圈外吸引人气。而华云龙作为绝对的山东新生代，在今年五月刚靠着一张专辑《龙年》大放异彩，正是需要老大哥领衔的时候。</p>
+        <p>在这样一首阴暗的孟菲斯伴奏上，两位rapper的腔调完全符合这样一首慢BPM的狠厉伴奏。伴奏的主体是由一段小提琴loop打底，再加上每个小节开头的低音钢琴，后面的等我明天早上起来再写……</p>
       </div>
     </div>
   </div>
