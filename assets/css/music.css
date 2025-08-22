@@ -29,7 +29,7 @@ body {
 
 /* 内容容器 */
 .content-container {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .player-header h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 0.5rem;
 }
@@ -74,10 +74,11 @@ body {
 }
 
 .album-image {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 15px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
   transition: transform 0.5s;
 }
 
@@ -93,6 +94,7 @@ body {
 .player-controls {
   flex: 2;
   min-width: 300px;
+  max-width: 500px;
 }
 
 .song-info {
@@ -100,7 +102,7 @@ body {
 }
 
 .song-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #2c3e50;
   margin-bottom: 0.5rem;
 }
@@ -113,6 +115,9 @@ body {
 /* 进度条 */
 .progress-container {
   margin-bottom: 1.5rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .progress-bar {
@@ -203,5 +208,9 @@ body {
   
   .player-body {
     flex-direction: column;
+  }
+
+  .progress-container {
+    width: 90%;
   }
 }
