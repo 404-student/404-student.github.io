@@ -192,6 +192,36 @@ body {
   transform: scale(1.05);
 }
 
+.song-description {
+  background: #e9ecef;
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.song-description h3 {
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.song-description p {
+  color: #5a6c7d;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.song-description p:last-child {
+  margin-bottom: 0;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .navbar {
