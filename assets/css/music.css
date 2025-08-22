@@ -42,6 +42,7 @@ body {
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   margin-bottom: 2rem;
+  width: 1200px;
 }
 
 .player-header {
@@ -115,7 +116,7 @@ body {
 /* 进度条 */
 .progress-container {
   margin-bottom: 1.5rem;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
