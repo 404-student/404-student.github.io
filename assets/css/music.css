@@ -7,6 +7,7 @@
 .music-container {
   position: relative;
   min-height: 100vh;
+  text-align: center;
 }
 
 body {
@@ -25,13 +26,6 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-/* 内容容器 */
-.content-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
 }
 
 /* 音乐播放器 */
@@ -118,8 +112,8 @@ body {
 /* 进度条 */
 .progress-container {
   margin-bottom: 1.5rem;
-  width: 100%;
-  margin-left: auto;
+  width: 90%;
+  margin-left: 0rem;
   margin-right: auto;
 }
 
@@ -198,6 +192,9 @@ body {
   border-radius: 12px;
   padding: 1.2rem;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   width: 100%;
   text-align: center;
 }
