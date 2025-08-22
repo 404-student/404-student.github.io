@@ -2,8 +2,8 @@
 main:
   - title: "测测运势"
     url: "/fortune/"
-  # - title: "Quick-Start Guide"
-  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "每日推歌"
+    url: "/music/"
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
