@@ -15,7 +15,6 @@ body {
   color: #333;
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
 }
 
 /* 粒子背景容器 */
@@ -33,7 +32,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  padding-top: 1rem;
 }
 
 /* 音乐播放器 */
