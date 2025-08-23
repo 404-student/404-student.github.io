@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const songArtist = document.getElementById('song-artist');
 
   let isPlaying = false;
-  let currentSongId = '2690538584'; // 在这里填入目标歌曲的ID
+  let currentSongId = '2734680361'; // 在这里填入目标歌曲的ID
 
   // 从API获取歌曲数据
   async function fetchSongData(songId) {
