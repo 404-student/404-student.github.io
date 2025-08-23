@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const songArtist = document.getElementById('song-artist');
 
   let isPlaying = false;
-  let currentSongId = '186436'; // 默认歌曲ID（晴天）
+  let currentSongId = '2734680361'; // 在这里填入目标歌曲的ID
 
   // 从API获取歌曲数据
   async function fetchSongData(songId) {
