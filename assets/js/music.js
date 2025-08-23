@@ -41,23 +41,57 @@ document.addEventListener('DOMContentLoaded', function() {
   const currentTimeEl = document.getElementById('current-time');
   const totalTimeEl = document.getElementById('total-time');
   const albumImage = document.getElementById('album-image');
-
-  // 模拟音乐数据
-  const songData = {
-    title: "晴天",
-    artist: "周杰伦",
-    duration: "4:30",
-    cover: "https://p2.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
-    url: "https://music.163.com/song/media/outer/url?id=186436.mp3"
-  };
+  const songTitle = document.getElementById('song-title');
+  const songArtist = document.getElementById('song-artist');
 
   let isPlaying = false;
+  let currentSongId = '186436'; // 默认歌曲ID（晴天）
 
-  // 初始化歌曲信息
-  document.getElementById('song-title').textContent = songData.title;
-  document.getElementById('song-artist').textContent = songData.artist;
-  albumImage.src = songData.cover;
-  audioPlayer.src = songData.url;
+  // 从API获取歌曲数据
+  async function fetchSongData(songId) {
+    try {
+      const response = await fetch(`https://api.paugram.com/netease/?id=${songId}`);
+      
+      if (!response.ok) {
+        throw new Error(`网络响应异常: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      // 更新页面信息
+      songTitle.textContent = data.name || '未知歌曲';
+      songArtist.textContent = data.artist || '未知歌手';
+      albumImage.src = data.cover || '';
+      
+      // 设置音频源
+      audioPlayer.src = data.link || '';
+      
+      // 预加载音频
+      audioPlayer.load();
+      
+      console.log('歌曲数据获取成功:', data);
+    } catch (error) {
+      console.error('获取歌曲信息失败:', error);
+      // 如果API请求失败，使用默认数据
+      setDefaultSongData();
+    }
+  }
+
+  // 设置默认歌曲数据（备用）
+  function setDefaultSongData() {
+    const defaultSongData = {
+      name: "晴天",
+      artist: "周杰伦",
+      cover: "https://p2.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+      link: "https://music.163.com/song/media/outer/url?id=186436.mp3"
+    };
+    
+    songTitle.textContent = defaultSongData.name;
+    songArtist.textContent = defaultSongData.artist;
+    albumImage.src = defaultSongData.cover;
+    audioPlayer.src = defaultSongData.link;
+    audioPlayer.load();
+  }
 
   // 格式化时间
   function formatTime(seconds) {
@@ -76,11 +110,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playSong() {
-    isPlaying = true;
-    playIcon.classList.remove('fa-play');
-    playIcon.classList.add('fa-pause');
-    albumImage.classList.add('playing');
-    audioPlayer.play();
+    // 确保音频已加载
+    if (audioPlayer.src && audioPlayer.src !== '') {
+      isPlaying = true;
+      playIcon.classList.remove('fa-play');
+      playIcon.classList.add('fa-pause');
+      albumImage.classList.add('playing');
+      audioPlayer.play().catch(error => {
+        console.error('播放失败:', error);
+        pauseSong(); // 如果播放失败，恢复状态
+      });
+    }
   }
 
   function pauseSong() {
@@ -111,7 +151,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const clickX = e.offsetX;
     const duration = audioPlayer.duration;
     
-    audioPlayer.currentTime = (clickX / width) * duration;
+    if (duration) {
+      audioPlayer.currentTime = (clickX / width) * duration;
+    }
   }
 
   // 事件监听器
@@ -121,6 +163,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 初始化时间显示
   audioPlayer.addEventListener('loadedmetadata', function() {
-    totalTimeEl.textContent = formatTime(audioPlayer.duration);
+    if (audioPlayer.duration) {
+      totalTimeEl.textContent = formatTime(audioPlayer.duration);
+    }
   });
+
+  // 音频加载错误处理
+  audioPlayer.addEventListener('error', function() {
+    console.error('音频加载失败');
+    // 可以在这里添加错误处理逻辑，比如切换到备用歌曲
+  });
+
+  // 初始化：从API获取歌曲数据
+  fetchSongData(currentSongId);
 });
