@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = await response.json();
       
       // 更新页面信息
-      songTitle.textContent = data.name || '未知歌曲';
+      songTitle.textContent = data.title || '未知歌曲';
       songArtist.textContent = data.artist || '未知歌手';
       albumImage.src = data.cover || '';
       
