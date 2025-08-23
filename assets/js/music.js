@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // 设置默认歌曲数据（备用）
   function setDefaultSongData() {
     const defaultSongData = {
-      name: "晴天",
+      title: "晴天",
       artist: "周杰伦",
       cover: "https://p2.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
       link: "https://music.163.com/song/media/outer/url?id=186436.mp3"
     };
     
-    songTitle.textContent = defaultSongData.name;
+    songTitle.textContent = defaultSongData.title;
     songArtist.textContent = defaultSongData.artist;
     albumImage.src = defaultSongData.cover;
     audioPlayer.src = defaultSongData.link;
