@@ -38,29 +38,34 @@
 </div>
 
 <!-- 引入qrcode.js生成二维码 -->
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <script>
   // 微信分享功能
   function openWechatShare() {
     const modal = document.getElementById('wechatShareModal');
     modal.style.display = "block";
 
-    // 生成二维码
+    // 生成二维码 - 使用更可靠的方法
     const qrElement = document.getElementById('wechatQrcode');
     qrElement.innerHTML = ''; // 清空之前的内容
 
     // 获取当前页面URL
     const url = window.location.href;
 
-    // 使用QRCode生成二维码
-    new QRCode(qrElement, {
-      text: url,
-      width: 200,
-      height: 200,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
-    });
+    try {
+      // 创建QRCode实例
+      const qrcode = new QRCode(qrElement, {
+        text: url,
+        width: 180,
+        height: 180,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    } catch (error) {
+      console.error("QRCode生成错误:", error);
+      qrElement.innerHTML = '<p style="color:red;">二维码生成失败，请刷新页面重试</p>';
+    }
   }
 
   function closeWechatShare() {
@@ -127,6 +132,19 @@
     font-size: 14px;
     color: #666;
     margin-top: 15px;
+  }
+
+  #wechatQrcode {
+    margin: 15px auto;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #wechatQrcode canvas {
+    border: 1px solid #eee;
+    border-radius: 4px;
   }
 
   /* 响应式调整 */
