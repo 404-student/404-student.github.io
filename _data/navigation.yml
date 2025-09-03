@@ -2,7 +2,7 @@
 main:
   - title: "测测运势"
     url: "/fortune/"
-  - title: "每日推歌"
+  - title: "每周推歌"
     url: "/music/"
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
