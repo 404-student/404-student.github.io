@@ -5,6 +5,10 @@
     <i class="fab fa-fw fa-qq" aria-hidden="true"></i><span> QQ空间</span>
   </a>
 
+  <a href="javascript:void(0)" class="btn btn--wechat" aria-label="分享到微信" onclick="openWechatShare()" title="分享到微信朋友圈">
+    <i class="fab fa-fw fa-weixin" aria-hidden="true"></i><span> 微信朋友圈</span>
+  </a>
+
   <a href="https://x.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&{% endif %}text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} X">
     <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
@@ -21,3 +25,115 @@
     <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
   </a>
 </section>
+
+<!-- 微信分享模态框 -->
+<div id="wechatShareModal" class="wechat-modal" style="display: none;">
+  <div class="wechat-modal-content">
+    <span class="wechat-close" onclick="closeWechatShare()">&times;</span>
+    <h3>分享到微信朋友圈</h3>
+    <p>请使用微信扫描下方二维码，然后在微信中打开页面并分享</p>
+    <div id="wechatQrcode"></div>
+    <p class="wechat-tip">扫描二维码后，点击右上角 ··· 分享到朋友圈</p>
+  </div>
+</div>
+
+<!-- 引入qrcode.js生成二维码 -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+  // 微信分享功能
+  function openWechatShare() {
+    const modal = document.getElementById('wechatShareModal');
+    modal.style.display = "block";
+
+    // 生成二维码
+    const qrElement = document.getElementById('wechatQrcode');
+    qrElement.innerHTML = ''; // 清空之前的内容
+
+    // 获取当前页面URL
+    const url = window.location.href;
+
+    // 使用QRCode生成二维码
+    new QRCode(qrElement, {
+      text: url,
+      width: 200,
+      height: 200,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  }
+
+  function closeWechatShare() {
+    document.getElementById('wechatShareModal').style.display = "none";
+  }
+
+  // 点击模态框外部关闭
+  window.onclick = function (event) {
+    const modal = document.getElementById('wechatShareModal');
+    if (event.target === modal) {
+      closeWechatShare();
+    }
+  }
+
+  // 添加键盘ESC键关闭模态框的功能
+  document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
+      closeWechatShare();
+    }
+  });
+</script>
+
+<style>
+  /* 微信分享模态框样式 */
+  .wechat-modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .wechat-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+  }
+
+  .wechat-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+  }
+
+  .wechat-close:hover {
+    color: #000;
+  }
+
+  .wechat-tip {
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+  }
+
+  /* 响应式调整 */
+  @media screen and (max-width: 600px) {
+    .wechat-modal-content {
+      margin: 20% auto;
+      width: 85%;
+    }
+  }
+</style>

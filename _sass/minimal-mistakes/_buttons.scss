@@ -44,6 +44,7 @@
   (mastodon, $mastodon-color),
   (twitter, $twitter-color),
   (qq, $qq-color),
+    (wechat, $wechat-color),
   (x, $x-color);
 
   @each $buttoncolor, $color in $buttoncolors {
