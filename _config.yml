@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "404 student"
   avatar           : "/assets/images/head.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "404 student 是一名普通的PKU 24本 信科学生，在水生火热的ai方向被折磨得死去活来。同时是一位说唱、乒乓球、狼人杀、minecraft的火热爱好者。"
+  bio              : "404 student 是一名普通的 PKU 24本 信科学生，在水生火热的 AI 方向被折磨得死去活来。同时是一位说唱、乒乓球、狼人杀、minecraft 的火热爱好者。"
   location         : "湖南 益阳"
   email            :
   links:
