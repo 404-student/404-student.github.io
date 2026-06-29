@@ -12,7 +12,7 @@ permalink: /music/
   <div class="music-player-container">
     <div class="player-header">
       <h1>本周推荐歌曲</h1>
-      <p>2025-09-01 to 2025-09-08</p>
+      <p>2026-06-29 to 2026-07-05</p>
     </div>
     <div class="player-body">
       <div class="album-art">
@@ -40,9 +40,8 @@ permalink: /music/
       </div>
       <div class="song-description">
         <h3>推荐原因</h3>
-        <p>来自于2017.07.21发行的专辑《Flower Boy》。推荐这首老歌是因为，2号我买了这张专辑的黑胶嘿嘿</p>
-        <p>这张专辑获得了格莱美最佳说唱专辑的提名，当年败给了喇嘛的DAMN.，说实话我更喜欢花男孩一点。而这首又是我在这张专辑里比较喜欢的歌，给我很欢快的感觉。</p>
-        <p>由于开学了缺少时间经营，每日推歌改为每周推歌。</p>
+        <p>我自己的歌我推荐推荐怎么了（×）</p>
+        <p>实则是因为最近在更新我的网站，打算优化一下界面，拉一些人来光顾我的风水宝地，顺便给我的专辑打打广告咯。这个暑假会发新专辑！</p>
       </div>
     </div>
   </div>
