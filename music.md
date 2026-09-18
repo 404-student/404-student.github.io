@@ -15,7 +15,7 @@ permalink: /music/
       </div>
       <div class="music-issue">
         <span>ISSUE 01</span>
-        <strong>2026.06.29 — 07.05</strong>
+        <strong>2026.09.14 — 09.20</strong>
       </div>
     </header>
 
@@ -77,8 +77,8 @@ permalink: /music/
         <h2 id="recommendation-title">为什么是这首歌？</h2>
       </div>
       <div class="song-description__copy">
-        <p>我自己的歌我推荐推荐怎么了（×）</p>
-        <p>实则是因为最近在更新我的网站，打算优化一下界面，拉一些人来光顾我的风水宝地，顺便给我的专辑打打广告。</p>
+        <p>答应我会幸福</p>
+        <p>最近在重构网站，正好我大爹张方钊要发新专辑了，这首歌又是我最喜欢他的一首，所以推荐给大家~</p>
       </div>
     </aside>
 
