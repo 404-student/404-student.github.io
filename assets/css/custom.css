@@ -731,15 +731,15 @@ body::before {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.45rem 0.75rem;
-  margin: 0 0 1.25rem;
-  padding: 0.75rem 0.9rem;
+  clear: both;
+  margin: 0.25rem 0 1.35rem;
+  padding: 0.15rem 0 0.15rem 0.75rem;
   color: #4d5864;
   font-size: 0.8rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(0, 146, 202, 0.14);
-  border-radius: 0.75rem;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  border: 0;
+  border-inline-start: 3px solid rgba(0, 146, 202, 0.55);
+  border-radius: 0;
 }
 
 .series-context a {
@@ -760,6 +760,12 @@ body::before {
 }
 
 .series-pagination {
+  /* Match the theme's floated pagination flow so this starts below the article. */
+  float: left;
+  float: inline-start;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
   margin-top: 2.5rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   background: rgba(255, 255, 255, 0.88);
