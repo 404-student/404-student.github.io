@@ -8,9 +8,9 @@ permalink: /fortune/
   <section class="fortune-app" aria-labelledby="fortune-title">
     <header class="fortune-hero">
       <div class="fortune-hero__copy">
-        <p class="fortune-kicker"><span aria-hidden="true">✦</span> DAILY ORACLE · 每日一签</p>
-        <h1 id="fortune-title">今天，宇宙想提醒你什么？</h1>
-        <p>选一个此刻最在意的方向，再凭直觉翻开一张牌。结果只属于今天的你。</p>
+        <p class="fortune-kicker"><span aria-hidden="true">✦</span> DAILY ORACLE · 每日一测</p>
+        <h1 id="fortune-title">404 大赌场</h1>
+        <p>选一个此刻最在意的方向，再凭直觉翻开一张牌。</p>
       </div>
       <div class="fortune-date-card" aria-label="今日日期">
         <span id="fortune-weekday">星期</span>
@@ -24,8 +24,8 @@ permalink: /fortune/
         <div class="fortune-section-heading">
           <span>01</span>
           <div>
-            <h2 id="fortune-setup-title">留下你的今日坐标</h2>
-            <p>称呼不会上传，只用于生成属于你的稳定今日签。</p>
+            <h2 id="fortune-setup-title">告诉我你心中所想</h2>
+            <p>称呼不会上传，只用于生成属于你的今日签</p>
           </div>
         </div>
 
@@ -59,7 +59,7 @@ permalink: /fortune/
             <span>02</span>
             <div>
               <h2>凭第一直觉选一张牌</h2>
-              <p>不用分析。犹豫时，通常第一眼已经替你选好了。</p>
+              <p>不用思考。我也不知道你有啥好思考的，这牌面上啥也没有啊</p>
             </div>
           </div>
 
@@ -86,7 +86,7 @@ permalink: /fortune/
           <span>翻开今日签</span>
           <i aria-hidden="true">→</i>
         </button>
-        <p class="fortune-privacy"><span aria-hidden="true">◉</span> 每日结果由日期、称呼、主题与所选签牌共同生成</p>
+        <p class="fortune-privacy"><span aria-hidden="true">◉</span> 仅供娱乐，请勿当真。当真我笑你一整天</p>
       </section>
 
       <section class="fortune-result" id="fortune-result" aria-labelledby="fortune-result-title" aria-live="polite" hidden>
