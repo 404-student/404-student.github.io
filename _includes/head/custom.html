@@ -2,4 +2,16 @@
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<style>
+  :root {
+    --site-background-image: {% if site.site_background.image %}url("{{ site.site_background.image | relative_url }}"){% else %}none{% endif %};
+    --site-background-opacity: {{ site.site_background.opacity | default: 0 }};
+    --site-background-position: {{ site.site_background.position | default: 'center center' }};
+    --site-background-size: {{ site.site_background.size | default: 'cover' }};
+    --site-background-repeat: {{ site.site_background.repeat | default: 'no-repeat' }};
+  }
+</style>
+
 <!-- end custom head snippets -->

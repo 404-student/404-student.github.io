@@ -3,7 +3,7 @@
    ========================================================================== */
 
 html {
-  background-color: $background-color;
+  background-color: #eeeeee;
 }
 
 body {
@@ -60,10 +60,10 @@ body::before {
 .archive__item--card:focus-within {
   transform: translateY(-0.35rem);
   background: rgba(255, 255, 255, 0.97);
-  border-color: rgba($primary-color, 0.7);
+  border-color: rgba(0, 146, 202, 0.7);
   box-shadow:
     0 1.15rem 2.5rem rgba(34, 40, 49, 0.18),
-    0 0 0 0.2rem rgba($primary-color, 0.1);
+    0 0 0 0.2rem rgba(0, 146, 202, 0.1);
 }
 
 .archive__item-card-cover {
@@ -122,10 +122,10 @@ body::before {
 
 .archive__item--card:hover .archive__item-title a,
 .archive__item--card:focus-within .archive__item-title a {
-  color: $primary-color;
+  color: #0092ca;
 }
 
-@include breakpoint(max-width $small) {
+@media (max-width: 600px) {
   .archive__item--card {
     min-height: 9rem;
     padding: 1.1rem;
