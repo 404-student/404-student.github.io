@@ -739,10 +739,10 @@
 
 .fortune-guidance__item strong {
   margin-top: 0.15rem;
-  overflow: hidden;
   font-size: 0.68rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .fortune-details {
@@ -940,10 +940,6 @@
   .fortune-metrics,
   .fortune-guidance {
     grid-template-columns: 1fr;
-  }
-
-  .fortune-guidance__item strong {
-    white-space: normal;
   }
 
   .fortune-result__actions {
