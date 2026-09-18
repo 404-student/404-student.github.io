@@ -21,6 +21,10 @@
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}
 
+{% if page.password_hash %}
+  <script src="{{ '/assets/js/post-password.js' | relative_url }}" defer></script>
+{% endif %}
+
 {% if site.after_footer_scripts %}
   {% for script in site.after_footer_scripts %}
     <script src="{{ script | relative_url }}"></script>
