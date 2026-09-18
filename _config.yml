@@ -36,7 +36,7 @@ breadcrumbs              : # true, false (default)
 # Set `opacity` between 0 (hidden) and 1 (fully visible).
 site_background:
   image                  : "/assets/images/gif_bkg.gif"
-  opacity                : 0.5
+  opacity                : 0.8
   position               : "center center"
   size                   : "cover"
   repeat                 : "no-repeat"
