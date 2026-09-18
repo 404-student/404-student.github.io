@@ -1,36 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
   // 初始化粒子背景
-  particlesJS('particles-js', {
-    particles: {
-      number: { value: 60, density: { enable: true, value_area: 800 } },
-      color: { value: "#ffffff" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5, random: true },
-      size: { value: 3, random: true },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 1
+  // 粒子只是装饰；即使 CDN 加载失败，也不能阻断播放器初始化。
+  if (typeof window.particlesJS === 'function') {
+    window.particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          out_mode: "out"
+        }
       },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: "none",
-        random: true,
-        out_mode: "out"
-      }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "grab" },
-        onclick: { enable: true, mode: "push" }
-      }
-    },
-    retina_detect: true
-  });
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        }
+      },
+      retina_detect: true
+    });
+  } else {
+    console.warn('粒子背景加载失败，播放器将继续正常运行。');
+  }
 
   // 音乐播放功能
   const audioPlayer = document.getElementById('audio-player');
@@ -45,26 +50,34 @@ document.addEventListener('DOMContentLoaded', function() {
   const songArtist = document.getElementById('song-artist');
 
   let isPlaying = false;
-  let currentSongId = '1967752637'; // 在这里填入目标歌曲的ID
+  const currentSongId = '1967752637'; // 在这里填入目标歌曲的 ID
 
   // 从API获取歌曲数据
   async function fetchSongData(songId) {
     try {
-      const response = await fetch(`https://api.paugram.com/netease/?id=${songId}`);
+      const response = await fetch(`https://api.paugram.com/netease/?id=${encodeURIComponent(songId)}`, {
+        cache: 'no-cache'
+      });
       
       if (!response.ok) {
         throw new Error(`网络响应异常: ${response.status}`);
       }
       
       const data = await response.json();
+
+      if (!data || String(data.id) !== String(songId) || !data.title || !data.artist) {
+        throw new Error('歌曲接口返回了不完整或不匹配的数据');
+      }
       
       // 更新页面信息
       songTitle.textContent = data.title || '未知歌曲';
       songArtist.textContent = data.artist || '未知歌手';
-      albumImage.src = data.cover || '';
+      if (data.cover) {
+        albumImage.src = data.cover;
+      }
       
       // 设置音频源
-      audioPlayer.src = data.link || '';
+      audioPlayer.src = data.link || `https://music.163.com/song/media/outer/url?id=${songId}`;
       
       // 预加载音频
       audioPlayer.load();
@@ -73,23 +86,15 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
       console.error('获取歌曲信息失败:', error);
       // 如果API请求失败，使用默认数据
-      setDefaultSongData();
+      showSongLoadError(songId);
     }
   }
 
-  // 设置默认歌曲数据（备用）
-  function setDefaultSongData() {
-    const defaultSongData = {
-      title: "晴天",
-      artist: "周杰伦",
-      cover: "https://p2.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
-      link: "https://music.163.com/song/media/outer/url?id=186436.mp3"
-    };
-    
-    songTitle.textContent = defaultSongData.title;
-    songArtist.textContent = defaultSongData.artist;
-    albumImage.src = defaultSongData.cover;
-    audioPlayer.src = defaultSongData.link;
+  // 接口失败时明确提示，同时保留目标歌曲的网易云直链供播放重试。
+  function showSongLoadError(songId) {
+    songTitle.textContent = '歌曲信息暂时无法加载';
+    songArtist.textContent = `目标歌曲 ID：${songId}，请稍后刷新`;
+    audioPlayer.src = `https://music.163.com/song/media/outer/url?id=${encodeURIComponent(songId)}`;
     audioPlayer.load();
   }
 

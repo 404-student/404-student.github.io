@@ -40,8 +40,8 @@ permalink: /music/
         </div>
 
         <div class="song-info">
-          <h2 class="song-title" id="song-title">See You Again</h2>
-          <p class="song-artist" id="song-artist">Tyler, the Creator</p>
+          <h2 class="song-title" id="song-title">正在读取本周推荐…</h2>
+          <p class="song-artist" id="song-artist">请稍候</p>
         </div>
 
         <div class="music-wave" aria-hidden="true">
@@ -94,4 +94,4 @@ permalink: /music/
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="{{ '/assets/css/music.css' | relative_url }}">
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="{{ '/assets/js/music.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/music.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
