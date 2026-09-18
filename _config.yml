@@ -35,8 +35,8 @@ breadcrumbs              : # true, false (default)
 # Global page background. `image` accepts static images and animated GIFs.
 # Set `opacity` between 0 (hidden) and 1 (fully visible).
 site_background:
-  image                  : "/assets/images/school3.jpg"
-  opacity                : 0.14
+  image                  : "/assets/images/gif_bkg.gif"
+  opacity                : 0.5
   position               : "center center"
   size                   : "cover"
   repeat                 : "no-repeat"
