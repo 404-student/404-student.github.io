@@ -41,14 +41,7 @@ body::before {
 .masthead .greedy-nav .visible-links a {
   margin: 0 0.22rem;
   padding: 0.55rem 0.8rem;
-  border: 1px solid transparent;
-  border-radius: 0.75rem;
-  transition:
-    color 180ms ease,
-    transform 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
+  transition: filter 180ms ease;
 }
 
 /* Disable Minimal Mistakes' blue underline reveal. */
@@ -58,33 +51,58 @@ body::before {
 }
 
 .masthead .greedy-nav .visible-links a:hover,
-.masthead .greedy-nav .visible-links a:focus-visible {
-  color: #075d7d;
-  transform: translateY(-0.12rem);
-  background-color: rgba(255, 255, 255, 0.38);
-  border-color: rgba(255, 255, 255, 0.58);
-  box-shadow:
-    0 0.45rem 1.15rem rgba(0, 146, 202, 0.2),
-    0 0 0 0.16rem rgba(0, 146, 202, 0.08);
+.masthead .greedy-nav .visible-links a:focus-visible,
+.masthead .greedy-nav .hidden-links a:hover,
+.masthead .greedy-nav .hidden-links a:focus-visible {
+  color: transparent;
+  background-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    #00c6ff 0%,
+    #7b61ff 22%,
+    #ff4ecd 45%,
+    #ff9f43 68%,
+    #35e6a5 86%,
+    #00c6ff 100%
+  );
+  background-size: 300% 100%;
+  background-position: 0 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter:
+    drop-shadow(0 0 0.28rem rgba(0, 198, 255, 0.7))
+    drop-shadow(0 0 0.5rem rgba(255, 78, 205, 0.4));
+  box-shadow: none;
+  transform: none;
+  animation: nav-spectrum-flow 3s linear infinite;
   outline: none;
+}
+
+@keyframes nav-spectrum-flow {
+  from {
+    background-position: 0 50%;
+  }
+
+  to {
+    background-position: 300% 50%;
+  }
 }
 
 .masthead .search__toggle,
 .masthead .greedy-nav__toggle {
   border-radius: 0.7rem;
-  transition:
-    transform 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
+  transition: filter 180ms ease;
 }
 
 .masthead .search__toggle:hover,
 .masthead .search__toggle:focus-visible,
 .masthead .greedy-nav__toggle:hover,
 .masthead .greedy-nav__toggle:focus-visible {
-  transform: translateY(-0.1rem);
-  background-color: rgba(255, 255, 255, 0.38);
-  box-shadow: 0 0.4rem 1rem rgba(0, 146, 202, 0.2);
+  transform: none;
+  background-color: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 0 0.42rem rgba(0, 146, 202, 0.72));
   outline: none;
 }
 
@@ -178,9 +196,11 @@ body::before {
 }
 
 .archive__item--card .archive__item-title a {
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.16em;
-  transition: color 180ms ease;
+  color: inherit;
+  text-decoration: none !important;
+  border-bottom: 0;
+  background-image: none;
+  transition: none;
 }
 
 /* Stretch the primary post link across the card without nesting block content in an anchor. */
@@ -202,7 +222,8 @@ body::before {
 
 .archive__item--card:hover .archive__item-title a,
 .archive__item--card:focus-within .archive__item-title a {
-  color: #0092ca;
+  color: inherit;
+  text-decoration: none !important;
 }
 
 @media (max-width: 600px) {
@@ -222,6 +243,14 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .masthead .greedy-nav .visible-links a:hover,
+  .masthead .greedy-nav .visible-links a:focus-visible,
+  .masthead .greedy-nav .hidden-links a:hover,
+  .masthead .greedy-nav .hidden-links a:focus-visible {
+    animation: none;
+    background-position: 50% 50%;
+  }
+
   .archive__item--card,
   .archive__item-card-cover img {
     transition: none;
