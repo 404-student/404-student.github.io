@@ -1,0 +1,33 @@
+{% assign series_posts = site.posts | where: "series", include.series_id | sort: "series_order" %}
+{% assign series_count = series_posts | size %}
+{% assign series_by_date = series_posts | sort: "date" %}
+{% assign latest_series_post = series_by_date | last %}
+{% assign series_cover = include.series.cover | default: site.teaser %}
+
+<div class="list__item archive-card-wrap series-card-wrap">
+  <article class="archive__item archive__item--card archive__item--series-card" itemscope itemtype="https://schema.org/CollectionPage">
+    {% if series_cover %}
+      <div class="archive__item-card-cover" aria-hidden="true">
+        <img src="{{ series_cover | relative_url }}" alt="" loading="lazy" decoding="async">
+      </div>
+    {% endif %}
+    <div class="archive__item-card-content">
+      <div class="series-card__eyebrow">
+        <span class="series-card__badge">合辑</span>
+        {% if include.series.status %}<span>{{ include.series.status }}</span>{% endif %}
+      </div>
+      <h2 class="archive__item-title no_toc" itemprop="name">
+        <a class="archive__item-card-link" href="{{ include.series.url | relative_url }}">{{ include.series.title }}</a>
+      </h2>
+      {% if include.series.description %}
+        <p class="archive__item-excerpt series-card__description" itemprop="description">{{ include.series.description }}</p>
+      {% endif %}
+      <p class="series-card__meta">
+        <span><i class="fas fa-layer-group" aria-hidden="true"></i> {{ series_count }} 篇</span>
+        {% if latest_series_post %}
+          <span><i class="far fa-calendar-alt" aria-hidden="true"></i> 更新于 {{ latest_series_post.date | date: "%Y-%m-%d" }}</span>
+        {% endif %}
+      </p>
+    </div>
+  </article>
+</div>

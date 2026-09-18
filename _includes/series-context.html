@@ -1,0 +1,8 @@
+{% assign series_data = site.data.series[page.series] %}
+{% if series_data %}
+  <div class="series-context">
+    <span class="series-context__label"><i class="fas fa-layer-group" aria-hidden="true"></i> 所属合辑</span>
+    <a href="{{ series_data.url | relative_url }}">{{ series_data.title }}</a>
+    <a class="series-context__directory" href="{{ series_data.url | relative_url }}">查看全部章节 <span aria-hidden="true">→</span></a>
+  </div>
+{% endif %}

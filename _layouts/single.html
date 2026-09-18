@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{% assign page_series_data = site.data.series[page.series] %}
+
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% elsif page.header.video.id and page.header.video.provider %}
@@ -44,6 +46,10 @@ layout: default
         <div class="post-password-protected" data-password-content hidden>
       {% endif %}
 
+      {% if page.series and page_series_data %}
+        {% include series-context.html %}
+      {% endif %}
+
       <section class="page__content" itemprop="text">
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
@@ -67,7 +73,11 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% include post_pagination.html %}
+      {% if page.series and page_series_data %}
+        {% include series-pagination.html %}
+      {% else %}
+        {% include post_pagination.html %}
+      {% endif %}
 
       {% if page.password_hash %}
         </div>

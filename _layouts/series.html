@@ -1,0 +1,65 @@
+---
+layout: default
+---
+
+{% assign series_data = site.data.series[page.series] %}
+{% assign series_posts = site.posts | where: "series", page.series | sort: "series_order" %}
+{% assign series_count = series_posts | size %}
+{% assign series_by_date = series_posts | sort: "date" %}
+{% assign latest_series_post = series_by_date | last %}
+
+<div id="main" role="main">
+  <article class="series-page" itemscope itemtype="https://schema.org/CollectionPage">
+    <header class="series-page__hero">
+      <div class="series-page__hero-content">
+        <p class="series-page__eyebrow"><i class="fas fa-layer-group" aria-hidden="true"></i> 文章合辑</p>
+        <h1 itemprop="name">{{ series_data.title | default: page.title }}</h1>
+        {% if series_data.description %}
+          <p class="series-page__description" itemprop="description">{{ series_data.description }}</p>
+        {% elsif page.excerpt %}
+          <p class="series-page__description" itemprop="description">{{ page.excerpt }}</p>
+        {% endif %}
+        <div class="series-page__meta">
+          <span>{{ series_count }} 篇文章</span>
+          {% if series_data.status %}<span>{{ series_data.status }}</span>{% endif %}
+          {% if latest_series_post %}<span>更新于 {{ latest_series_post.date | date: "%Y-%m-%d" }}</span>{% endif %}
+        </div>
+      </div>
+      {% if series_data.cover %}
+        <div class="series-page__cover" aria-hidden="true">
+          <img src="{{ series_data.cover | relative_url }}" alt="">
+        </div>
+      {% endif %}
+    </header>
+
+    <section class="series-page__chapters" aria-labelledby="series-chapters-title">
+      <div class="series-page__section-heading">
+        <div>
+          <p>CONTENTS</p>
+          <h2 id="series-chapters-title">章节目录</h2>
+        </div>
+        {% if series_posts.first %}
+          <a class="series-page__start" href="{{ series_posts.first.url | relative_url }}">从第一篇开始 <span aria-hidden="true">→</span></a>
+        {% endif %}
+      </div>
+
+      <ol class="series-chapter-list">
+        {% for chapter in series_posts %}
+          <li>
+            <a class="series-chapter" href="{{ chapter.url | relative_url }}">
+              <span class="series-chapter__number">{{ chapter.series_order | default: forloop.index }}</span>
+              <span class="series-chapter__content">
+                <span class="series-chapter__title">{{ chapter.title }}</span>
+                {% if chapter.excerpt %}
+                  <span class="series-chapter__excerpt">{{ chapter.excerpt | markdownify | strip_html | strip_newlines }}</span>
+                {% endif %}
+              </span>
+              <span class="series-chapter__date">{{ chapter.date | date: "%Y-%m-%d" }}</span>
+              <span class="series-chapter__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  </article>
+</div>

@@ -4,17 +4,25 @@ layout: archive
 
 {{ content }}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "近期文章" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
+<h3 class="archive__subtitle">合辑与文章</h3>
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
+{% assign rendered_series = '|' %}
 <div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html entries=posts type=entries_layout %}
+  {% for post in site.posts %}
+    {% if post.series %}
+      {% capture series_marker %}|{{ post.series }}|{% endcapture %}
+      {% unless rendered_series contains series_marker %}
+        {% assign series_data = site.data.series[post.series] %}
+        {% if series_data %}
+          {% include series-card.html series_id=post.series series=series_data %}
+          {% capture rendered_series %}{{ rendered_series }}{{ post.series }}|{% endcapture %}
+        {% else %}
+          {% include archive-single.html type=entries_layout %}
+        {% endif %}
+      {% endunless %}
+    {% else %}
+      {% include archive-single.html type=entries_layout %}
+    {% endif %}
+  {% endfor %}
 </div>
-
-{% include paginator.html %}

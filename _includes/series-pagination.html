@@ -1,0 +1,69 @@
+{% assign series_data = site.data.series[page.series] %}
+{% assign series_posts = site.posts | where: "series", page.series | sort: "series_order" %}
+{% assign series_count = series_posts | size %}
+{% assign previous_chapter = nil %}
+{% assign next_chapter = nil %}
+{% assign current_chapter_index = 0 %}
+{% assign current_chapter_found = false %}
+
+{% for chapter in series_posts %}
+  {% if current_chapter_found %}
+    {% assign next_chapter = chapter %}
+    {% break %}
+  {% endif %}
+  {% if chapter.url == page.url %}
+    {% assign current_chapter_index = forloop.index %}
+    {% assign current_chapter_found = true %}
+  {% else %}
+    {% assign previous_chapter = chapter %}
+  {% endif %}
+{% endfor %}
+
+{% assign series_progress = 0 %}
+{% if series_count > 0 %}
+  {% assign series_progress = current_chapter_index | times: 100 | divided_by: series_count %}
+{% endif %}
+
+<nav class="series-pagination" aria-label="合辑章节导航">
+  <div class="series-pagination__header">
+    <div>
+      <span class="series-pagination__eyebrow">继续阅读合辑</span>
+      <a href="{{ series_data.url | relative_url }}">{{ series_data.title }}</a>
+    </div>
+    <span class="series-pagination__count">第 {{ current_chapter_index }} / {{ series_count }} 篇</span>
+  </div>
+  <div
+    class="series-pagination__progress"
+    role="progressbar"
+    aria-valuemin="1"
+    aria-valuemax="{{ series_count }}"
+    aria-valuenow="{{ current_chapter_index }}"
+    aria-label="合辑阅读进度"
+  >
+    <span style="width: {{ series_progress }}%"></span>
+  </div>
+  <div class="series-pagination__links">
+    {% if previous_chapter %}
+      <a class="series-pagination__link is-previous" href="{{ previous_chapter.url | relative_url }}">
+        <span class="series-pagination__direction">← 上一篇</span>
+        <strong>{{ previous_chapter.title }}</strong>
+      </a>
+    {% else %}
+      <span class="series-pagination__link is-disabled"><span class="series-pagination__direction">已经是第一篇</span></span>
+    {% endif %}
+
+    <a class="series-pagination__directory" href="{{ series_data.url | relative_url }}" aria-label="返回合辑目录">
+      <i class="fas fa-list" aria-hidden="true"></i>
+      <span>目录</span>
+    </a>
+
+    {% if next_chapter %}
+      <a class="series-pagination__link is-next" href="{{ next_chapter.url | relative_url }}">
+        <span class="series-pagination__direction">下一篇 →</span>
+        <strong>{{ next_chapter.title }}</strong>
+      </a>
+    {% else %}
+      <span class="series-pagination__link is-disabled is-next"><span class="series-pagination__direction">已经是最后一篇</span></span>
+    {% endif %}
+  </div>
+</nav>

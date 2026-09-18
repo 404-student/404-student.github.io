@@ -245,9 +245,9 @@ permalink: /:categories/:title/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
-# Pagination with jekyll-paginate
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+# Homepage entries are grouped by series in `_layouts/home.html`. The original
+# paginator cannot paginate these virtual series entries without duplication,
+# so the grouped homepage intentionally renders without jekyll-paginate.
 
 # Pagination with jekyll-paginate-v2
 # See https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration

@@ -1,0 +1,6 @@
+fnlp:
+  title: "FNLP 基础笔记"
+  description: "自然语言处理基础课程笔记，从词义消歧、统计语言模型一路讲到序列标注与句法分析。"
+  cover: "/assets/images/IguessGood.jpg"
+  url: "/series/fnlp/"
+  status: "已完结"
