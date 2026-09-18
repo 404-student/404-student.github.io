@@ -15,7 +15,7 @@
 minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "zh-CN"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "404 Student's World"
 title_separator          : "-"
@@ -25,10 +25,22 @@ description              : "欢迎！"
 url                      : "https://404-student.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "/assets/images/school3.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+# Default card cover. A post can override it with `header.teaser`; when omitted,
+# its `header.overlay_image` is used before falling back to this image.
+teaser                   : "/assets/images/school3.jpg"
 logo                     : "/assets/images/head.jpg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
+
+# Global page background. `image` accepts static images and animated GIFs.
+# Set `opacity` between 0 (hidden) and 1 (fully visible).
+site_background:
+  image                  : "/assets/images/school3.jpg"
+  opacity                : 0.14
+  position               : "center center"
+  size                   : "cover"
+  repeat                 : "no-repeat"
+
 words_per_minute         : 20
 enable_copy_code_button  : true # true, false (default)
 copyright                : # "copyright" name, defaults to site.title
@@ -326,4 +338,4 @@ defaults:
       comments: true
       share: true
       related: true
-      show-date: true
+      show_date: true

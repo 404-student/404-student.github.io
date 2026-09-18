@@ -1,0 +1,156 @@
+/* ========================================================================== 
+   Site background
+   ========================================================================== */
+
+html {
+  background-color: $background-color;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  background-color: transparent;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--site-background-image);
+  background-position: var(--site-background-position);
+  background-size: var(--site-background-size);
+  background-repeat: var(--site-background-repeat);
+  opacity: var(--site-background-opacity);
+}
+
+/* Keep the main navigation readable over both static and animated backgrounds. */
+.masthead {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+}
+
+/* ========================================================================== 
+   Post cards
+   ========================================================================== */
+
+.entries-list .archive-card-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.archive__item--card {
+  position: relative;
+  min-height: 10rem;
+  padding: 1.4rem 1.5rem;
+  overflow: hidden;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(57, 62, 70, 0.13);
+  border-radius: 1rem;
+  box-shadow: 0 0.35rem 1.25rem rgba(34, 40, 49, 0.08);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.archive__item--card:hover,
+.archive__item--card:focus-within {
+  transform: translateY(-0.35rem);
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba($primary-color, 0.7);
+  box-shadow:
+    0 1.15rem 2.5rem rgba(34, 40, 49, 0.18),
+    0 0 0 0.2rem rgba($primary-color, 0.1);
+}
+
+.archive__item-card-cover {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -2;
+  width: 62%;
+  max-width: 38rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.28) 24%, #000 68%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.28) 24%, #000 68%);
+}
+
+.archive__item-card-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 255, 255, 0.28) 42%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+}
+
+.archive__item-card-cover img {
+  width: calc(100% + 2rem);
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform: translateX(1rem) scale(1.04);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive__item--card:hover .archive__item-card-cover img,
+.archive__item--card:focus-within .archive__item-card-cover img {
+  transform: translateX(-0.8rem) scale(1.08);
+}
+
+.archive__item-card-content {
+  position: relative;
+  z-index: 1;
+  width: 74%;
+  max-width: 42rem;
+}
+
+.archive__item--card .archive__item-title {
+  margin-top: 0;
+}
+
+.archive__item--card .archive__item-title a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+  transition: color 180ms ease;
+}
+
+.archive__item--card:hover .archive__item-title a,
+.archive__item--card:focus-within .archive__item-title a {
+  color: $primary-color;
+}
+
+@include breakpoint(max-width $small) {
+  .archive__item--card {
+    min-height: 9rem;
+    padding: 1.1rem;
+  }
+
+  .archive__item-card-cover {
+    width: 68%;
+    opacity: 0.72;
+  }
+
+  .archive__item-card-content {
+    width: 86%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive__item--card,
+  .archive__item-card-cover img {
+    transition: none;
+  }
+
+  .archive__item--card:hover,
+  .archive__item--card:focus-within,
+  .archive__item--card:hover .archive__item-card-cover img,
+  .archive__item--card:focus-within .archive__item-card-cover img {
+    transform: none;
+  }
+}
