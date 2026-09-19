@@ -447,27 +447,6 @@
   margin-top: 0.45rem;
 }
 
-.music-footer-note {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  color: var(--music-muted);
-}
-
-.music-footer-note span {
-  font-size: 0.56rem;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-}
-
-.music-footer-note strong {
-  font-size: 0.66rem;
-  font-weight: 500;
-  text-align: right;
-}
-
 @media (max-width: 820px) {
   .music-player-container {
     grid-template-columns: 1fr;

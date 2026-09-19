@@ -79,11 +79,6 @@ permalink: /music/
         <p>最近在重构网站，正好我大爹张方钊要发新专辑了，这首歌又是我最喜欢他的一首，所以推荐给大家~</p>
       </div>
     </aside>
-
-    <footer class="music-footer-note">
-      <span>NEXT UPDATE</span>
-      <strong>下周见，让一首好歌替这一周留下坐标。</strong>
-    </footer>
   </section>
 
   <audio id="audio-player" preload="metadata"></audio>
