@@ -25,6 +25,27 @@ body::before {
   opacity: var(--site-background-opacity);
 }
 
+/* Keep article text readable while allowing the site background to show through. */
+.layout--single .page__content {
+  padding: clamp(1.15rem, 2.5vw, 2rem);
+  color: #252a32;
+  background-color: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  border-radius: 1.1rem;
+  box-shadow:
+    0 1rem 2.8rem rgba(31, 38, 50, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.48);
+  -webkit-backdrop-filter: blur(14px) saturate(1.18);
+  backdrop-filter: blur(14px) saturate(1.18);
+}
+
+@media (max-width: 600px) {
+  .layout--single .page__content {
+    padding: 1rem;
+    border-radius: 0.85rem;
+  }
+}
+
 /* Let the global background continue through the navigation bar. */
 .masthead {
   background-color: rgba(255, 255, 255, 0.22);
