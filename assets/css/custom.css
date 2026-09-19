@@ -29,14 +29,16 @@ body::before {
 .layout--single .page__content {
   padding: clamp(1.15rem, 2.5vw, 2rem);
   color: #252a32;
-  background-color: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.56);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.52), rgba(244, 249, 252, 0.28));
+  border: 1px solid rgba(255, 255, 255, 0.76);
   border-radius: 1.1rem;
   box-shadow:
-    0 1rem 2.8rem rgba(31, 38, 50, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.48);
-  -webkit-backdrop-filter: blur(14px) saturate(1.18);
-  backdrop-filter: blur(14px) saturate(1.18);
+    0 1rem 3rem rgba(31, 38, 50, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+  backdrop-filter: blur(22px) saturate(1.35);
 }
 
 @media (max-width: 600px) {
