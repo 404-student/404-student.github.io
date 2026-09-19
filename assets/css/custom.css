@@ -48,6 +48,56 @@ body::before {
   }
 }
 
+/* Use the spare outer gutter on wide screens to separate the TOC from the article. */
+@media (min-width: 1440px) {
+  .layout--single .sidebar__right {
+    margin-inline-end: calc(
+      -300px - clamp(2rem, calc(33.333vw - 426.667px), 6rem)
+    );
+  }
+}
+
+/* Author profile: a calm, opaque panel instead of another glass surface. */
+.sidebar {
+  opacity: 1;
+}
+
+.sidebar > .h-card {
+  position: relative;
+  box-sizing: border-box;
+  padding: clamp(0.95rem, 1.8vw, 1.3rem);
+  color: #3c4852;
+  background: linear-gradient(145deg, #fffaf0 0%, #edf6f2 100%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow:
+    0 0.85rem 2rem rgba(39, 51, 58, 0.16),
+    inset 0 1px 0 #ffffff;
+}
+
+.sidebar > .h-card .author__name,
+.sidebar > .h-card .author__name a {
+  color: #26343d;
+}
+
+.sidebar > .h-card .author__bio,
+.sidebar > .h-card .author__urls,
+.sidebar > .h-card .author__urls a {
+  color: #52616a;
+}
+
+.sidebar > .h-card .author__urls a:hover,
+.sidebar > .h-card .author__urls a:focus-visible {
+  color: #007f8f;
+}
+
+@media (max-width: 600px) {
+  .sidebar > .h-card {
+    padding: 0.85rem;
+    border-radius: 0.85rem;
+  }
+}
+
 /* Let the global background continue through the navigation bar. */
 .masthead {
   background-color: rgba(255, 255, 255, 0.22);
