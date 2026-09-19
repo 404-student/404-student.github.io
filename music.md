@@ -5,8 +5,6 @@ permalink: /music/
 ---
 
 <main class="music-page">
-  <div class="music-ambient" id="particles-js" aria-hidden="true"></div>
-
   <section class="music-stage" aria-labelledby="music-page-title">
     <header class="music-header">
       <div>
@@ -93,5 +91,4 @@ permalink: /music/
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="{{ '/assets/css/music.css' | relative_url }}">
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="{{ '/assets/js/music.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

@@ -11,33 +11,7 @@
   padding: clamp(0.7rem, 2.5vw, 2rem);
   overflow: hidden;
   color: var(--music-paper);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(67, 92, 120, 0.38), transparent 29rem),
-    radial-gradient(circle at 90% 80%, rgba(90, 48, 69, 0.3), transparent 28rem),
-    linear-gradient(145deg, #151c27, #0b1018 66%, #17131d);
-}
-
-.music-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.18;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
-}
-
-.music-ambient {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  opacity: 0.26;
-  pointer-events: none;
-}
-
-.music-ambient canvas {
-  display: block;
+  background: transparent;
 }
 
 .music-stage {

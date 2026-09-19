@@ -1,42 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // 初始化粒子背景
-  // 粒子只是装饰；即使 CDN 加载失败，也不能阻断播放器初始化。
-  if (typeof window.particlesJS === 'function') {
-    window.particlesJS('particles-js', {
-      particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#ffffff",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          random: true,
-          out_mode: "out"
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" }
-        }
-      },
-      retina_detect: true
-    });
-  } else {
-    console.warn('粒子背景加载失败，播放器将继续正常运行。');
-  }
-
   // 音乐播放功能
   const audioPlayer = document.getElementById('audio-player');
   const playButton = document.getElementById('play-button');
