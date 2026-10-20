@@ -41,11 +41,6 @@ layout: default
         </header>
       {% endunless %}
 
-      {% if page.password_hash %}
-        {% include post-password-gate.html %}
-        <div class="post-password-protected" data-password-content hidden>
-      {% endif %}
-
       {% if page.series and page_series_data %}
         {% include series-context.html %}
       {% endif %}
@@ -79,9 +74,6 @@ layout: default
         {% include post_pagination.html %}
       {% endif %}
 
-      {% if page.password_hash %}
-        </div>
-      {% endif %}
     </div>
 
     {% if site.comments.provider and page.comments %}
