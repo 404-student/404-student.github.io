@@ -7,7 +7,7 @@ fnlp:
 
 multimodal:
   title: "多模态学习笔记"
-  description: "多模态学习课程笔记，涵盖课程引言、深度学习基础、计算机视觉、自然语言处理和多模态表征。"
+  description: "多模态学习课程笔记，涵盖课程引言、深度学习基础、计算机视觉、自然语言处理、多模态表征、模态对齐与 Transformer 模型。"
   cover: "/assets/images/school3.jpg"
   url: "/series/multimodal/"
   status: "连载中"
